@@ -9,7 +9,7 @@ pico_sdk_init()
 
 # project
 add_executable(output
-    main.c ../utils/src/button.c
+    main.c ../utils/src/button.c ../utils/src/bargraph.c
 )
 
 # Add pico_stdlib library which aggregates commonly used features
@@ -17,3 +17,5 @@ target_link_libraries(output pico_stdlib)
 
 # create map/bin/hex/uf2 file in addition to ELF.
 pico_add_extra_outputs(output)
+pico_enable_stdio_usb(output 1)
+pico_enable_stdio_uart(output 0)
